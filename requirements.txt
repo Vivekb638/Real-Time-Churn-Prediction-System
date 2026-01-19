@@ -9,3 +9,4 @@ streamlit
 reportlab
 python-dotenv
 joblib
+python-multipart
