@@ -1,188 +1,162 @@
-🚀 Real-Time Churn Prediction System
+# 🚀 Real-Time Churn Prediction System  
+### Decision Intelligence Platform for Customer Retention
 
-Decision Intelligence Platform for Customer Retention
+🔗 **Live Application (Frontend):**  
+👉 https://real-time-churn-prediction-system.streamlit.app/
 
-A full-stack Machine Learning + FastAPI + Streamlit application that predicts customer churn in real time, quantifies revenue risk, and provides actionable business insights for both individual customers and enterprise portfolios.
+---
 
-🧠 Project Overview
+## 📌 Overview
 
-Customer churn is one of the biggest revenue threats for subscription-based businesses.
-This project transforms a churn prediction model into a production-ready decision intelligence system.
+The **Real-Time Churn Prediction System** is a full-stack Machine Learning application designed to help businesses **predict customer churn**, **quantify revenue loss**, and **take proactive retention actions**.
 
-What this system does:
+This project converts a churn prediction ML model into a **production-ready decision intelligence platform** with:
+- Real-time individual predictions
+- Enterprise batch analysis
+- Interactive dashboards
+- Executive-level PDF reports
 
-Predicts churn probability for individual customers
+---
 
-Segments customers into Low / Medium / High Risk
+## 🧠 Key Capabilities
 
-Estimates revenue at risk
+### 👤 Individual Customer Analysis
+- Predicts churn probability in real time
+- Classifies customers into:
+  - 🟢 Low Risk  
+  - 🟠 Medium Risk  
+  - 🔴 High Risk
+- Estimates annual revenue loss
+- Provides actionable business recommendations
 
-Provides business recommendations
+---
 
-Supports enterprise batch analysis
+### 🏢 Enterprise Decision Intelligence
+A complete 4-step enterprise workflow:
 
-Generates executive PDF reports
+1. **Company Details**
+   - Company name
+   - Location
+   - Email
+   - Website
 
-Fully deployable with FastAPI backend + Streamlit frontend
+2. **Dataset Upload**
+   - Upload customer data (CSV / Excel)
+   - Automatic schema validation
+   - Customer ID handling
 
-🏗️ System Architecture
+3. **Enterprise Dashboard**
+   - Risk segmentation distribution
+   - Revenue-at-risk analysis
+   - Feature vs churn analysis:
+     - Gender vs churn
+     - Contract vs churn
+     - Partner vs churn
+     - Internet service vs churn
+
+4. **Executive PDF Report**
+   - Company overview
+   - Risk summary
+   - Revenue impact
+   - Customer-level decision table:
+     - Customer ID
+     - Churn probability
+     - Risk level
+     - Annual revenue loss
+     - Recommended action
+
+---
+
+## 🏗️ System Architecture
+
 User (Browser)
-   |
-   |  Streamlit UI
-   v
+|
+| Streamlit UI
+v
 Frontend (Streamlit)
-   |
-   | REST API Calls
-   v
+|
+| REST API Calls
+v
 Backend (FastAPI)
-   |
-   | ML Inference
-   v
+|
+| ML Inference
+v
 Churn Prediction Model (Scikit-learn)
 
-🧩 Tech Stack
-🔹 Machine Learning
 
-Logistic Regression (Scikit-learn)
+---
 
-Feature Engineering
+## 🧩 Technology Stack
 
-Probability-based risk segmentation
+### Machine Learning
+- Scikit-learn
+- Logistic Regression
+- Feature Engineering
+- Probability-based segmentation
 
-🔹 Backend
+### Backend
+- FastAPI
+- Uvicorn
+- Joblib
 
-FastAPI
+### Frontend
+- Streamlit
+- Interactive dashboards
 
-Uvicorn
+### Data & Visualization
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
 
-Joblib (model loading)
+### Reporting
+- ReportLab (PDF generation)
 
-🔹 Frontend
+---
 
-Streamlit
+## 📁 Project Structure
 
-Interactive dashboards
-
-Enterprise batch workflows
-
-🔹 Data & Visualization
-
-Pandas, NumPy
-
-Matplotlib, Seaborn
-
-🔹 Reporting
-
-ReportLab (PDF generation)
-
-🔹 Deployment
-
-Backend: Render
-
-Frontend: Streamlit Cloud
-
-✨ Key Features
-👤 Individual Customer Analysis
-
-Real-time churn probability
-
-Risk classification (Low / Medium / High)
-
-Annual revenue loss estimation
-
-Business action recommendations
-
-🏢 Enterprise Decision Intelligence
-
-4-Step Workflow
-
-1️⃣ Company Details
-
-Company name, location, email, website
-
-2️⃣ Dataset Upload
-
-CSV / Excel customer data
-
-Schema validation
-
-Automatic customer ID handling
-
-3️⃣ Enterprise Dashboard
-
-Portfolio risk distribution
-
-Revenue-at-risk analysis
-
-Feature vs churn analysis:
-
-Gender vs churn
-
-Contract vs churn
-
-Partner vs churn
-
-Internet service vs churn
-
-4️⃣ Executive PDF Report
-
-Company overview
-
-Risk segmentation summary
-
-Revenue impact
-
-Customer-level decision table
-
-📊 Example Business Outputs
-
-Churn Probability: 72%
-
-Risk Level: High Risk
-
-Estimated Annual Revenue Loss: $1,240
-
-Recommendation: Immediate retention offer & contract upgrade
-
-📁 Project Structure
 Real-Time-Churn-Prediction-System/
 │
 ├── dashboard/
-│   └── app.py              # Streamlit frontend
+│ └── app.py # Streamlit frontend
 │
 ├── src/
-│   ├── api/
-│   │   └── main.py         # FastAPI backend
-│   ├── model/
-│   │   └── churn_model.pkl
-│   └── utils/
-│       ├── preprocessing.py
-│       ├── schema.py
-│       └── pdf_report.py
+│ ├── api/
+│ │ └── main.py # FastAPI backend
+│ ├── model/
+│ │ └── churn_model.pkl
+│ └── utils/
+│ ├── preprocessing.py
+│ ├── schema.py
+│ └── pdf_report.py
 │
 ├── requirements.txt
 ├── README.md
 └── .env
 
-🧪 API Endpoints
-Health Check
-GET /
 
-Single Customer Prediction
-POST /predict
+---
 
-Enterprise Batch Prediction
-POST /predict-batch
+## ⚙️ Installation & Setup (Run Locally)
 
-🚀 Deployment
-Backend (FastAPI – Render)
-uvicorn src.api.main:app --host 0.0.0.0 --port 10000
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/Vivekb638/Real-Time-Churn-Prediction-System.git
+cd Real-Time-Churn-Prediction-System
+### 2️⃣ Create Virtual Environment (Recommended)
+python -m venv venv
+source venv/bin/activate   # Linux / Mac
+venv\Scripts\activate      # Windows
 
-Frontend (Streamlit Cloud)
-streamlit run dashboard/app.py
+### 3️⃣ Install Dependencies
+pip install -r requirements.txt
 
-📦 Requirements
-pandas
+## 📦 Required Dependencies
+
+The project requires the following libraries:
+
+**pandas
 numpy
 scikit-learn
 matplotlib
@@ -193,39 +167,71 @@ streamlit
 reportlab
 python-dotenv
 joblib
-python-multipart
+python-multipart**
 
-🎯 Business Value
+## ▶️ Running the Project Locally
+### 🔹 Start Backend (FastAPI)
+uvicorn src.api.main:app --host 127.0.0.1 --port 8000
 
-Reduces customer churn proactively
 
-Enables data-driven retention strategies
+Backend will be available at:
 
-Quantifies financial risk
+http://127.0.0.1:8000
+
+### 🔹 Start Frontend (Streamlit)
+streamlit run dashboard/app.py
+
+
+Frontend will open at:
+
+http://localhost:8501
+
+## 🌐 Deployment
+✅ Frontend (Streamlit Cloud)
+
+### **Live application:**
+👉 https://real-time-churn-prediction-system.streamlit.app/
+
+
+## 📊 Business Impact
+
+Early identification of churn risk
+
+Quantified revenue loss estimation
+
+Actionable retention strategies
+
+Enterprise-scale decision making
 
 Executive-ready reporting
 
-Scalable for enterprise use
-
-🔮 Future Enhancements
-
-Authentication & role-based access
+## 🔮 Future Enhancements
 
 Model explainability (SHAP)
 
-A/B testing for retention strategies
+Authentication & role-based access
+
+Advanced retention simulations
 
 Cloud storage for reports
 
-Multi-model comparison
+Multiple model comparison
 
-👨‍💻 Author
+## 👨‍💻 Author
 
-Vivek
+**Vineet Baghel**
 Machine Learning & Data Science Enthusiast
 
-📌 This project demonstrates end-to-end ML engineering, backend APIs, frontend dashboards, and production deployment.
+This project demonstrates end-to-end ML engineering, including:
 
-⭐ If you like this project
+Model development
 
-Give it a ⭐ on GitHub — it really helps!
+Backend API design
+
+Frontend dashboards
+
+Enterprise reporting
+
+Cloud deployment
+
+## ⭐ If you find this project useful, please consider giving it a star on GitHub!
