@@ -6,5 +6,6 @@ seaborn
 fastapi
 uvicorn
 streamlit
+reportlab
+python-dotenv
 joblib
-shap
