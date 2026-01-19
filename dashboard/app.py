@@ -1,7 +1,15 @@
+import sys
+import os
+
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if ROOT_DIR not in sys.path:
+    sys.path.append(ROOT_DIR)
+
+
 import streamlit as st
 import requests
 import pandas as pd
-import os
+# import os
 from dotenv import load_dotenv
 from src.utils.pdf_report import generate_churn_pdf
 import tempfile
