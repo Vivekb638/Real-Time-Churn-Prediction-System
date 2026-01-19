@@ -3,10 +3,10 @@ numpy
 scikit-learn
 matplotlib
 seaborn
-fastapi
-uvicorn
+# fastapi
+# uvicorn
 streamlit
 reportlab
 python-dotenv
 joblib
-python-multipart
+# python-multipart
