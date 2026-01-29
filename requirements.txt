@@ -12,14 +12,35 @@
 # python-multipart
 
 
+# streamlit==1.31.0
+# altair==4.2.2
+# pandas==2.1.4
+# numpy==1.26.4
+# scikit-learn==1.3.2
+# joblib==1.3.2
+# matplotlib==3.8.2
+# seaborn==0.13.0
+# reportlab==4.0.7
+# requests==2.32.3
+# python-dotenv==1.0.1
+
+
+# ---- Streamlit core ----
 streamlit==1.31.0
 altair==4.2.2
-pandas==2.1.4
-numpy==1.26.4
-scikit-learn==1.3.2
-joblib==1.3.2
-matplotlib==3.8.2
-seaborn==0.13.0
-reportlab==4.0.7
+
+# ---- Data ----
+pandas==2.2.2
+numpy==2.0.2
+
+# ---- Visualization ----
+matplotlib==3.9.2
+seaborn==0.13.2
+
+# ---- Utilities ----
 requests==2.32.3
-python-dotenv==1.0.1
+reportlab==4.2.5
+
+# ---- ML (only if really used in frontend) ----
+scikit-learn==1.5.2
+joblib==1.4.2
