@@ -218,6 +218,47 @@ else:
     # TAB 2 — DATASET UPLOAD + BATCH PREDICTION
     # =====================================================
     with tab2:
+        st.subheader("📋 Required Dataset Schema")
+
+        schema_df = pd.DataFrame({
+            "Order": range(1, 21),
+            "Column Name": [
+                "customerID","gender","SeniorCitizen","Partner","Dependents","tenure",
+                "PhoneService","MultipleLines","InternetService","OnlineSecurity",
+                "OnlineBackup","DeviceProtection","TechSupport","StreamingTV",
+                "StreamingMovies","Contract","PaperlessBilling","PaymentMethod",
+                "MonthlyCharges","TotalCharges"
+            ],
+            "Type": [
+                "String","Category","Integer","Category","Category","Integer",
+                "Category","Category","Category","Category",
+                "Category","Category","Category","Category",
+                "Category","Category","Category","Category",
+                "Float","Float"
+            ]
+        })
+
+        st.dataframe(schema_df, use_container_width=True)
+
+        st.info(
+            "📌 **Important:**\n"
+            "- Column names must match exactly\n"
+            "- Order should be the same\n"
+            "- Accepted file formats: CSV or Excel\n"
+        )
+
+        sample_csv = """customerID,gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod,MonthlyCharges,TotalCharges
+        CUST_001,Male,0,Yes,No,12,Yes,No,DSL,Yes,Yes,No,Yes,No,No,One year,Yes,Credit card,75.5,906.0
+        """
+
+        st.download_button(
+            label="⬇ Download Sample Dataset",
+            data=sample_csv,
+            file_name="sample_enterprise_dataset.csv",
+            mime="text/csv"
+        )
+
+
         st.markdown("### Upload Customer Dataset")
 
         uploaded = st.file_uploader(
