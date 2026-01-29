@@ -25,22 +25,19 @@
 # python-dotenv==1.0.1
 
 
-# ---- Streamlit core ----
+# ---------- Streamlit ----------
 streamlit==1.31.0
 altair==4.2.2
 
-# ---- Data ----
+# ---------- Core data ----------
+numpy==1.26.4
 pandas==2.2.2
-numpy==2.0.2
 
-# ---- Visualization ----
-matplotlib==3.9.2
+# ---------- Visualization ----------
+matplotlib==3.8.4
 seaborn==0.13.2
 
-# ---- Utilities ----
+# ---------- Utilities ----------
 requests==2.32.3
 reportlab==4.2.5
 
-# ---- ML (only if really used in frontend) ----
-scikit-learn==1.5.2
-joblib==1.4.2
