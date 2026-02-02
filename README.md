@@ -1,8 +1,6 @@
 # 🚀 Real-Time Churn Prediction System  
 ### Decision Intelligence Platform for Customer Retention
 
-🔗 **Live Application (Frontend):**  
-👉 https://real-time-churn-prediction-system.streamlit.app/
 
 ---
 
