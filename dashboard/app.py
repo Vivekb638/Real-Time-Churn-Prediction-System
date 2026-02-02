@@ -14,24 +14,15 @@ from dotenv import load_dotenv
 from src.utils.pdf_report import generate_churn_pdf
 import tempfile
 
-# =========================================================
-# LOAD ENV
-# =========================================================
 load_dotenv()
 API_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
 
-# =========================================================
-# PAGE CONFIG
-# =========================================================
 st.set_page_config(
     page_title="ChurnAI | Decision Intelligence",
     page_icon="🔮",
     layout="wide",
 )
 
-# =========================================================
-# STYLING
-# =========================================================
 def apply_custom_design():
     bg_img_url = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072"
     st.markdown(f"""
@@ -55,9 +46,6 @@ def apply_custom_design():
 
 apply_custom_design()
 
-# =========================================================
-# HEADER
-# =========================================================
 st.markdown("""
 <h1 style="text-align:center;">🚀 CHURN<span style="color:#3b82f6;">.AI</span></h1>
 <p style="text-align:center;opacity:0.8;">
@@ -65,9 +53,6 @@ Predict churn · Quantify revenue risk · Recommend actions
 </p>
 """, unsafe_allow_html=True)
 
-# =========================================================
-# SIDEBAR
-# =========================================================
 with st.sidebar:
     st.markdown("## 🧭 Navigation")
     mode = st.radio("Select Mode", ["Individual Customer", "Enterprise"])
@@ -75,9 +60,7 @@ with st.sidebar:
     st.success("Model: Logistic Regression")
     st.caption("Decision Intelligence Enabled")
 
-# =========================================================
-# INDIVIDUAL MODE
-# =========================================================
+
 if mode == "Individual Customer":
 
     tab1, tab2, tab3 = st.tabs(["👤 Profile", "📡 Services", "💳 Billing"])
@@ -174,15 +157,6 @@ if mode == "Individual Customer":
 
         st.markdown('</div>', unsafe_allow_html=True)
 
-# =========================================================
-# ENTERPRISE MODE
-# =========================================================
-# =========================================================
-# ENTERPRISE MODE (BATCH DECISION INTELLIGENCE)
-# =========================================================
-# =========================================================
-# ENTERPRISE MODE — DASHBOARD
-# =========================================================
 else:
     st.markdown('<div class="glass">', unsafe_allow_html=True)
     st.subheader("🏢 Enterprise Decision Intelligence")
@@ -214,9 +188,6 @@ else:
 
         st.info("ℹ️ This information will be included in the executive PDF report.")
 
-    # =====================================================
-    # TAB 2 — DATASET UPLOAD + BATCH PREDICTION
-    # =====================================================
     with tab2:
         st.subheader("📋 Required Dataset Schema")
 
@@ -316,9 +287,6 @@ else:
             st.session_state["batch_summary"] = pd.DataFrame(result["summary"])
             st.session_state["batch_samples"] = pd.DataFrame(result["sample_predictions"])
 
-    # =====================================================
-    # TAB 3 — ENTERPRISE DASHBOARD
-    # =====================================================
     with tab3:
         if "batch_summary" not in st.session_state:
             st.warning("⚠️ Run batch prediction first")
@@ -413,10 +381,5 @@ else:
 
     st.markdown('</div>', unsafe_allow_html=True)
 
-
-
-# =========================================================
-# FOOTER
-# =========================================================
 st.caption("ChurnAI · Decision Intelligence Platform · ML + FastAPI + Streamlit")
 
