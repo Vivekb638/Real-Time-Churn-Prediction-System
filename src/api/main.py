@@ -4,9 +4,7 @@ import pandas as pd
 import joblib
 from src.utils.preprocessing import apply_feature_engineering
 from src.utils.schema import REQUIRED_COLUMNS
-# ==================================================
-# APP INITIALIZATION
-# ==================================================
+
 app = FastAPI(
     title="Customer Churn Decision Intelligence API",
     description="Predict churn, quantify revenue risk, and support enterprise decision-making",
@@ -14,9 +12,7 @@ app = FastAPI(
 )
 MODEL_PATH = "src/model/churn_model.pkl"
 model = joblib.load(MODEL_PATH)
-# ==================================================
-# HELPERS
-# ==================================================
+
 def risk_segment(prob: float) -> str:
     if prob < 0.4:
         return "Low Risk"
@@ -31,16 +27,10 @@ def recommend_action(risk: str) -> str:
         return "Engagement campaign & personalized discount"
     else:
         return "Loyalty rewards & upsell opportunity"
-# ==================================================
-# HEALTH CHECK
-# ==================================================
 @app.get("/")
 def health_check():
     return {"status": "API is running"}
 
-# ==================================================
-# SINGLE CUSTOMER PREDICTION
-# ==================================================
 @app.post("/predict")
 def predict_single(payload: Dict):
     """
@@ -48,7 +38,6 @@ def predict_single(payload: Dict):
     """
     try:
         df = pd.DataFrame([payload])
-        # Schema validation
         missing = [col for col in REQUIRED_COLUMNS if col not in df.columns]
         if missing:
             return {
@@ -82,24 +71,16 @@ def predict_single(payload: Dict):
     except Exception as e:
         return {"error": str(e)}
 
-# ==================================================
-# BATCH PREDICTION (ENTERPRISE)
-# ==================================================
+
 @app.post("/predict-batch")
 def predict_batch(file: UploadFile = File(...)):
 
     try:
         df = pd.read_csv(file.file)
 
-        # -------------------------------
-        # GUARANTEE customerID
-        # -------------------------------
         if "customerID" not in df.columns:
             df.insert(0, "customerID", ["CUST_" + str(i) for i in range(1, len(df) + 1)])
 
-        # -------------------------------
-        # SCHEMA VALIDATION
-        # -------------------------------
         missing = [col for col in REQUIRED_COLUMNS if col not in df.columns]
         if missing:
             return {
@@ -107,16 +88,11 @@ def predict_batch(file: UploadFile = File(...)):
                 "missing_columns": missing
             }
 
-        # -------------------------------
-        # FEATURE ENGINEERING (NO ID)
-        # -------------------------------
+
         df_features = apply_feature_engineering(
             df.drop(columns=["customerID"], errors="ignore")
         )
 
-        # -------------------------------
-        # PREDICTIONS
-        # -------------------------------
         df["churn_probability"] = model.predict_proba(df_features)[:, 1]
 
         df["risk_segment"] = pd.cut(
@@ -126,10 +102,6 @@ def predict_batch(file: UploadFile = File(...)):
         )
 
         df["revenue_at_risk"] = df["MonthlyCharges"] * df["churn_probability"] * 6
-
-        # -------------------------------
-        # SUMMARY
-        # -------------------------------
         summary = (
             df.groupby("risk_segment")
             .agg(
