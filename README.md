@@ -20,6 +20,40 @@ This project transforms a churn prediction model into a **production-ready enter
 - Executive-level PDF reports  
 
 ---
+## Images 
+
+<img width="1778" height="972" alt="Screenshot 2026-02-02 224536" src="https://github.com/user-attachments/assets/c058621f-c6b2-4ea8-8aec-693f9621fa39" />
+<img width="1919" height="977" alt="Screenshot 2026-02-02 224609" src="https://github.com/user-attachments/assets/b0e1baf5-82d2-46d6-8c3b-00b412639bf8" />
+
+
+<img width="1919" height="975" alt="Screenshot 2026-02-02 224621" src="https://github.com/user-attachments/assets/fe5f9ace-b440-4bed-a8b2-d0b7d810ff7d" />
+
+
+<img width="1919" height="970" alt="Screenshot 2026-02-02 224707" src="https://github.com/user-attachments/assets/109f5aa6-2045-4f24-b4f7-58aac1d49858" />
+
+
+<img width="1918" height="971" alt="Screenshot 2026-02-02 224723" src="https://github.com/user-attachments/assets/116b90f1-7cbe-4eb4-87fa-bada9c0d2d23" />
+
+<img width="1919" height="973" alt="Screenshot 2026-02-02 224735" src="https://github.com/user-attachments/assets/dd717bc0-c12f-421f-b85c-e06eb279b068" />
+
+
+<img width="1919" height="972" alt="Screenshot 2026-02-02 224807" src="https://github.com/user-attachments/assets/86dda4fb-e9e1-47b1-952d-ab0a107e1a3a" />
+
+
+<img width="1919" height="970" alt="Screenshot 2026-02-02 224821" src="https://github.com/user-attachments/assets/96f7a017-fccd-4d17-9ca2-4e88a52463e9" />
+
+
+<img width="1919" height="973" alt="Screenshot 2026-02-02 224834" src="https://github.com/user-attachments/assets/51757239-2274-4fe8-bbe8-a6f82fae33e8" />
+
+
+<img width="1919" height="979" alt="Screenshot 2026-02-02 224856" src="https://github.com/user-attachments/assets/16bef319-7a71-443b-81d3-0e33664525ba" />
+
+
+
+
+<img width="573" height="813" alt="Screenshot 2026-02-02 225339" src="https://github.com/user-attachments/assets/9fd4504c-22f3-4a51-9ad3-aafb0597e971" />
+
+
 
 ## 🧠 Key Capabilities
 
