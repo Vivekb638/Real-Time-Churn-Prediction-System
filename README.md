@@ -2,7 +2,7 @@
 ### Decision Intelligence Platform for Customer Retention
 
 🔗 **Live Application (Frontend):**  
-👉 https://real-time-churn-prediction-system.streamlit.app/
+👉 (https://real-time-churn-prediction-system-k.vercel.app/)
 
 ---
 
