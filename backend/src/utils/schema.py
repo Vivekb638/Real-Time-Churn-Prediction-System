@@ -23,5 +23,6 @@ REQUIRED_COLUMNS = [
 
 # Optional columns (for reporting only)
 OPTIONAL_COLUMNS = [
-    "customerID"
+    "customerID",
+    "customerName"
 ]

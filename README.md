@@ -78,68 +78,63 @@ A complete **4-step enterprise workflow**:
 User (Browser)
 │
 ▼
-Frontend (Streamlit)
-│ REST API Calls
+Frontend (React + Vite + TailwindCSS)
+│ REST API Calls (JSON)
 ▼
 Backend (FastAPI)
-│ ML Inference
+│ ML Inference & Rule Logic
 ▼
-Churn Prediction Model (Scikit-learn)
+Churn Prediction Output & PDF Engine
 
 
 ---
 
 ## 🧩 Technology Stack
 
-### 🔹 Machine Learning
-- Scikit-learn  
-- Logistic Regression  
-- Feature Engineering  
-- Probability-based Risk Segmentation  
+### 🔹 Core Intelligence & Data
+- **Machine Learning**: Scikit-Learn (Logistic Regression, Random Forest, etc.)
+- **Data Engineering**: Pandas, NumPy
+- **Analysis**: Matplotlib, Seaborn
 
-### 🔹 Backend
-- FastAPI  
-- Uvicorn  
-- Joblib  
+### 🔹 Backend API
+- **Framework**: FastAPI (Async)
+- **Server**: Uvicorn
+- **Serialization**: Joblib
+- **Reporting**: ReportLab (Dynamic PDF Engine)
 
-### 🔹 Frontend
-- Streamlit  
-- Interactive Dashboards  
-
-### 🔹 Data & Visualization
-- Pandas  
-- NumPy  
-- Matplotlib  
-- Seaborn  
-
-### 🔹 Reporting
-- ReportLab (PDF generation)  
+### 🔹 Frontend Client
+- **Framework**: React.js (Vite)
+- **Styling**: TailwindCSS v4 (Glassmorphism UI)
+- **Routing**: React Router DOM
+- **Visualization**: Recharts (Pie/Bar/Metrics)
+- **Icons**: Lucide-React
 
 ---
 
-## 📁 Project Structure
+## 📁 Project Structure (Monorepo)
 
 Real-Time-Churn-Prediction-System/
 │
-├── dashboard/
-│ └── app.py # Streamlit frontend
+├── frontend/                 # React SPA Client
+│   ├── src/
+│   │   ├── components/       # UI Elements
+│   │   ├── pages/            # Views (Dashboard, Individual)
+│   │   └── App.jsx
+│   ├── package.json
+│   └── vite.config.js
 │
-├── src/
-│ ├── api/
-│ │ └── main.py # FastAPI backend
-│ │
-│ ├── model/
-│ │ └── churn_model.pkl
-│ │
-│ └── utils/
-│ ├── preprocessing.py
-│ ├── schema.py
-│ └── pdf_report.py
+├── backend/                  # FastAPI & ML Engine
+│   ├── src/
+│   │   ├── api/              # Endpoints (main.py)
+│   │   ├── utils/            # Preprocessing, schema, PDF logic
+│   │   ├── train_models.py   # Automated 10-model trainer
+│   │   └── model/            # Serialized models
+│   ├── data/                 # Raw/Sample datasets
+│   └── requirements.txt
 │
-├── requirements.txt
+├── analysis.md               # Business Intelligence & Findings
 ├── README.md
-└── .env
-
+└── .gitignore
 
 ---
 
@@ -149,83 +144,52 @@ Real-Time-Churn-Prediction-System/
 ```bash
 git clone https://github.com/Vivekb638/Real-Time-Churn-Prediction-System.git
 cd Real-Time-Churn-Prediction-System
-2️⃣ Create Virtual Environment (Recommended)
+```
+
+### 2️⃣ Start the Intelligence Backend (FastAPI)
+Open a terminal and navigate to the backend folder:
+```bash
+cd backend
 python -m venv venv
 source venv/bin/activate      # Linux / Mac
 venv\Scripts\activate         # Windows
-3️⃣ Install Dependencies
+
+# Install ML & API dependencies
 pip install -r requirements.txt
-📦 Required Dependencies
-pandas
-numpy
-scikit-learn
-matplotlib
-seaborn
-fastapi
-uvicorn
-streamlit
-reportlab
-python-dotenv
-joblib
-python-multipart
-▶️ Running the Project Locally
-🔹 Start Backend (FastAPI)
-uvicorn src.api.main:app --host 127.0.0.1 --port 8000
-Backend will be available at:
-👉 http://127.0.0.1:8000
 
-🔹 Start Frontend (Streamlit)
-streamlit run dashboard/app.py
-Frontend will open at:
-👉 http://localhost:8501
+# Launch Server
+python -m uvicorn src.api.main:app --host 0.0.0.0 --port 8000
+```
+*The API will be operational at: 👉 http://127.0.0.1:8000*
 
-🌐 Deployment
-✅ Frontend (Streamlit Cloud)
-🔗 Live App:
-👉 https://real-time-churn-prediction-system.streamlit.app/
+### 3️⃣ Start the Frontend Client (React)
+Open a new terminal and navigate to the frontend folder:
+```bash
+cd frontend
 
-✅ Backend (Render)
-FastAPI hosted on Render
+# Install Node modules
+npm install
 
-Secure API integration via Streamlit Secrets
+# Launch Development Server
+npm run dev
+```
+*The Dashboard will open at: 👉 http://localhost:5173*
 
-📊 Business Impact
-Early identification of churn risk
+---
 
-Revenue loss quantification
+## 📊 Business Impact
+- **Early Identification**: Predict churn risk in real-time.
+- **Revenue Quantification**: Calculate exact annual revenue at risk.
+- **Actionable AI Strategies**: Dynamically generates targeted 1-of-11 retention actions based on the specific customer profile.
+- **Executive Reporting**: One-click categorized enterprise PDF exports.
 
-Actionable retention strategies
+---
 
-Enterprise-scale decision-making
+## 👨‍💻 Author
+**Vineet Baghel**  
+*Machine Learning & Data Science Enthusiast*
 
-Executive-ready reporting
-
-🔮 Future Enhancements
-Model explainability (SHAP)
-
-Authentication & role-based access
-
-Advanced retention simulations
-
-Cloud storage for reports
-
-Multiple model comparison
-
-👨‍💻 Author
-Vineet Baghel
-Machine Learning & Data Science Enthusiast
-
-This project demonstrates end-to-end ML engineering, including:
-
-Model development
-
-Backend API design
-
-Frontend dashboards
-
-Enterprise reporting
-
-Cloud deployment
+This project demonstrates a complete end-to-end ML engineering pipeline: Model Training -> Backend Service -> Dynamic React Dashboard -> Policy Generation.
 
 ⭐ If you find this project useful, please consider giving it a star on GitHub! ⭐
 

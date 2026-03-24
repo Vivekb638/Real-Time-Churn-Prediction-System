@@ -1,6 +1,16 @@
-__pycache__/
-.env
+# Backend
+backend/__pycache__/
+backend/venv/
+backend/.env
+backend/outputs/*.pdf
+backend/model/*.pkl
+backend/model/*.joblib
 *.pkl
 *.joblib
-venv/
-data/
+.env
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+*.log

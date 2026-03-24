@@ -35,7 +35,7 @@ def _create_risk_chart_image(summary_df):
     return buffer
 
 
-def generate_churn_pdf(company_info, summary_df, output_path):
+def generate_churn_pdf(company_info, summary_df, customer_lists, output_path):
     """
     Generate enterprise churn intelligence PDF (SAFE VERSION)
     """
@@ -135,6 +135,61 @@ def generate_churn_pdf(company_info, summary_df, output_path):
     )
 
     elements.append(Spacer(1, 0.3 * inch))
+
+    # --------------------------------------------------
+    # CUSTOMER LISTS BY RISK SEGMENT
+    # --------------------------------------------------
+    if customer_lists:
+        elements.append(Paragraph("<b>Identified Customers by Risk</b>", styles["Heading2"]))
+        
+        for risk_level in ["High Risk", "Medium Risk", "Low Risk"]:
+            customers = customer_lists.get(risk_level, [])
+            if not customers:
+                continue
+                
+            elements.append(Paragraph(f"<b>{risk_level}</b>", styles["Heading3"]))
+            
+            # Limit to top 50 per category to avoid massive PDFs
+            limited_customers = customers[:50]
+            
+            list_table_data = [["ID", "Name", "Probability", "Revenue at Risk"]]
+            for c in limited_customers:
+                prob_str = f"{c.get('churn_probability', 0)*100:.1f}%"
+                rev_str = f"${c.get('revenue_at_risk', 0):,.2f}"
+                list_table_data.append([
+                    str(c.get("customerID", "")),
+                    str(c.get("customerName", "")),
+                    prob_str,
+                    rev_str
+                ])
+                
+            list_table = Table(list_table_data, colWidths=[1.5 * inch, 2.5 * inch, 1.0 * inch, 1.5 * inch])
+            
+            # Choose header color based on risk
+            header_color = colors.lightgrey
+            if risk_level == "High Risk":
+                header_color = colors.lightcoral
+            elif risk_level == "Medium Risk":
+                header_color = colors.wheat
+            elif risk_level == "Low Risk":
+                header_color = colors.lightgreen
+                
+            list_table.setStyle(
+                TableStyle(
+                    [
+                        ("BACKGROUND", (0, 0), (-1, 0), header_color),
+                        ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
+                        ("FONT", (0, 0), (-1, 0), "Helvetica-Bold"),
+                        ("ALIGN", (2, 1), (-1, -1), "RIGHT"),
+                    ]
+                )
+            )
+            elements.append(list_table)
+            elements.append(Spacer(1, 0.1 * inch))
+            
+            if len(customers) > 50:
+                elements.append(Paragraph(f"<i>Showing top 50 of {len(customers)} customers in {risk_level}</i>", styles["Normal"]))
+                elements.append(Spacer(1, 0.2 * inch))
 
     # --------------------------------------------------
     # INSIGHTS
