@@ -9,7 +9,7 @@ import {
   PieChart, Pie, Cell, Legend
 } from 'recharts';
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = import.meta.env.VITE_API_URL || "https://real-time-churn-prediction-system.onrender.com";
 
 const RISK_COLORS = {
   'High Risk': '#ef4444',

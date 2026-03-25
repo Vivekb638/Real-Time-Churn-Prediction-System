@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { User, Shield, CreditCard, AlertTriangle, CheckCircle2, Search, DollarSign, Activity } from 'lucide-react';
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = import.meta.env.VITE_API_URL || "https://real-time-churn-prediction-system.onrender.com";
 
 const IndividualMode = () => {
   const [activeTab, setActiveTab] = useState('profile');
