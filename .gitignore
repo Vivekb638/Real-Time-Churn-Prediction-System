@@ -5,7 +5,6 @@ backend/.env
 backend/outputs/*.pdf
 backend/model/*.pkl
 backend/model/*.joblib
-*.pkl
 *.joblib
 .env
 
@@ -14,3 +13,4 @@ frontend/node_modules/
 frontend/dist/
 frontend/.env
 *.log
+!backend/src/model/churn_model.pkl

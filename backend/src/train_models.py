@@ -108,6 +108,7 @@ def train_and_evaluate():
     print(f"=============================================")
     
     model_path = "src/model/churn_model.pkl"
+    os.makedirs(os.path.dirname(model_path), exist_ok=True)
     joblib.dump(best_pipeline, model_path)
     print(f"Saved best model pipeline to {model_path}!")
 
