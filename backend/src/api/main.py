@@ -27,7 +27,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MODEL_PATH = "src/model/churn_model.pkl"
+# Use absolute path to ensure successful deployment on Render regardless of working directory
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODEL_PATH = os.path.join(BASE_DIR, "model", "churn_model.pkl")
 model = joblib.load(MODEL_PATH)
 # ==================================================
 # HELPERS
