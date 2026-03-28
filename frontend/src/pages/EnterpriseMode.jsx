@@ -154,7 +154,7 @@ const EnterpriseMode = () => {
     ];
 
     return (
-      <div className="flex bg-white/5 p-1 rounded-xl mb-6 border border-white/10 w-fit overflow-x-auto">
+      <div className="flex bg-white/5 p-1 rounded-xl mb-6 border border-white/10 w-full md:w-fit overflow-x-auto whitespace-nowrap">
         {tabs.map(tab => (
           <button 
             key={tab.id}

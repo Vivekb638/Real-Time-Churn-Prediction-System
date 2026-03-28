@@ -10,7 +10,7 @@ function App() {
       <div className="flex flex-col min-h-screen text-white relative">
         <Navbar />
         
-        <main className="flex-1 p-6 md:p-10 w-full max-w-7xl mx-auto mt-8">
+        <main className="flex-1 px-4 py-6 md:p-10 w-full max-w-7xl mx-auto mt-2 md:mt-8">
           <header className="mb-12 text-center lg:text-left">
             <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">
               Decision <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">Intelligence</span> Engine
